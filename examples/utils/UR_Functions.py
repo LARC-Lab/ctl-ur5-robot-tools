@@ -2,10 +2,10 @@
 
 import socket
 import numpy as np
-import utils.util
+from examples.utils.util import *
 from time import sleep
 import struct
-from robotiq.robotiq_gripper_control import RobotiqGripper
+from examples.robotiq.robotiq_gripper_control import RobotiqGripper
 from rtde_control import RTDEControlInterface
 from rtde_io import RTDEIOInterface
 
@@ -233,7 +233,7 @@ class URfunctions:
         rpy[0] += delta_theta_x  # Adjust roll (rotation around x-axis)
         rpy[1] += delta_theta_y  # Adjust pich (rotation around y-axis)
         rpy[2] += delta_theta_z  # Adjust yaw (rotation around Z-axis)
-        target_rv = util.rpy2rv(rpy)
+        target_rv = utils.rpy2rv(rpy)
         target_tcp = np.array([
             current_tcp[0] + delta_x,
             current_tcp[1] + delta_y,
